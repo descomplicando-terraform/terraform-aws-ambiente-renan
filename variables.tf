@@ -1,4 +1,4 @@
-variable "nome" {
+variable "name" {
   type        = string
   description = "Instance name"
 }
