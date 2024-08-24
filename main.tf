@@ -11,10 +11,8 @@ data "aws_ami" "ubuntu" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-
 }
 
-#tfsec:ignore:aws-ec2-enforce-http-token-imds:exp:2025-01-02
 resource "aws_instance" "this" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
@@ -34,7 +32,7 @@ resource "aws_instance" "this" {
   }
 
   tags = {
-    Name       = var.nome
+    Name       = var.name
     Env        = var.environment
     Plataforma = data.aws_ami.ubuntu.platform_details
   }
